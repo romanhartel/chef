@@ -40,7 +40,7 @@ $ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json > ~/log/c
 If you want to get rid of all these color codes in output just use the following command instead:
 
 ```
-$ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" > ~/log/chef_install.log
+$ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" > ~/log/chef_install.log
 ```
 
 Access is granted by using the foo:bar tuple identifier.
