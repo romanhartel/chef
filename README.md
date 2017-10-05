@@ -11,7 +11,9 @@ Below is the overall idea of a solution from what I could understand by reading 
 - Chef Solo (included with Chef)
 - Chef Solo installation log's location
 - Knife, Knife Solo and Librarian-Chef tools
+- OpenSSL
 - SSL key and certificate may already be generated and currently accessible from the server hard drive (optional - can be generated using Chef as well)
+- A _log_ directory at the root level of your account's home directory
 
 # Plan
 According to the exercice's description, the following technical steps are to automated in order to fully complete the sequence:
@@ -32,8 +34,16 @@ According to the exercice's description, the following technical steps are to au
 
 # Chef Solo Execution
 ```
-$ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json
+$ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json > ~/log/chef_install.log
 ```
+
+If you want to get rid of all these color codes in output just use the following command instead:
+
+```
+$ sudo chef-solo -c ~/chef-repo/solo.rb -j ~/chef-repo/nodes/node.json sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" > ~/log/chef_install.log
+```
+
+Access is granted by using the foo:bar tuple identifier.
 
 # Design and Use
 This setup typically matches the configuration of reverse proxy cache servers. Their primary function is to deliver static content files/assets faster (usually by being closer) to clients. They form the basic building blocks of a CDN network.

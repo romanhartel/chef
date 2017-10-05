@@ -1,9 +1,10 @@
-uri = 'http://www.ergsergergerg.ger'
+uri = 'https://' + node['hostname']
 
 http_request 'head' do
   url uri
   message ''
   headers({
+    "Authorization" => "Basic Zm9vOmJhcg==",
     "Connection" => "Keep-Alive",
     "Keep-Alive" => "Keep-Alive: timeout=5, max=2",
   })
@@ -15,6 +16,9 @@ end
 
 http_request 'post' do
   url uri
-  message ({:some => 'data'}.to_json)
+  message 'whatever'
+  headers({
+    "Authorization" => "Basic Zm9vOmJhcg=="
+  })
   action :post
 end

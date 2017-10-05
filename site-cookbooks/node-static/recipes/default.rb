@@ -15,7 +15,7 @@ Description=This is node static!
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/static /home/ubuntu/log/chef_install.html -p 4242
+ExecStart=/usr/bin/static /home/ubuntu/log/chef_install.log -p 4242
 Type=simple
 PIDFile=/tmp/static.pid
 
